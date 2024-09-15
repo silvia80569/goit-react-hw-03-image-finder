@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import axios from 'axios';
-import './App.module.css';
+import styles from './App.module.css';
 import Searchbar from './Searchbar/Searchbar';
 import ImageGallery from './ImageGallery/ImageGallery';
 import Loader from './Loader/Loader';
@@ -61,7 +61,7 @@ export default class App extends Component {
     const { images, error,loading,modalImage } = this.state;
   
     return (
-      <div className="App">
+      <div className={styles.App}>
         <Searchbar onSubmit={this.handleSearchSubmit} />
          {error && <p>{error}</p>}
         <ImageGallery images={images} onImageClick={this.handleImageClick} />

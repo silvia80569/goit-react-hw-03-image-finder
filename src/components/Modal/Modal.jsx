@@ -1,10 +1,9 @@
-import { Component } from "react";
-import "./Modal.module.css";
-import PropTypes from "prop-types";
+import { Component } from 'react';
+import styles from './Modal.module.css';
+import PropTypes from 'prop-types';
 
 export default class Modal extends Component {
-  
-     componentDidMount() {
+  componentDidMount() {
     window.addEventListener('keydown', this.handleEscape);
   }
 
@@ -12,21 +11,21 @@ export default class Modal extends Component {
     window.removeEventListener('keydown', this.handleEscape);
   }
 
-  handleEscape = (e) => {
+  handleEscape = e => {
     if (e.code === 'Escape') {
       this.props.onClose();
     }
   };
 
-  handleOverlayClick = (e) => {
-  if (e.currentTarget === e.target) {
-    this.props.onClose();
-  }
-};
+  handleOverlayClick = e => {
+    if (e.currentTarget === e.target) {
+      this.props.onClose();
+    }
+  };
   render() {
     return (
-      <div className="Overlay" onClick={this.handleOverlayClick}>
-        <div className="Modal">
+      <div className={styles.Overlay} onClick={this.handleOverlayClick}>
+        <div className={styles.Modal}>
           <img src={this.props.largeImageURL} alt="img" />
         </div>
       </div>
